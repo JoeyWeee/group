@@ -8,11 +8,15 @@ export default defineConfig({
     port: process.env.PORT || 5173,
     proxy: {
       '/api': {
-        target: `http://localhost:3000`, // 确保此端口与后端服务一致
+        target: `http://localhost:${process.env.BACKEND_PORT || 3000}`, // 确保与 Express 端口一致
         changeOrigin: true,
       },
       '/auth': {
-        target: `http://localhost:3000`,
+        target: `http://localhost:${process.env.BACKEND_PORT || 3000}`,
+        changeOrigin: true,
+      },
+      '/products': {
+        target: `http://localhost:${process.env.BACKEND_PORT || 3000}`,
         changeOrigin: true,
       },
     },
@@ -21,7 +25,9 @@ export default defineConfig({
     manifest: true,
     rollupOptions: {
       input: "./src/main.jsx",
-      outDir: 'dist/app', // 确保这是一个有效路径
+      output: {
+        dir: 'dist/app', // 确保路径正确
+      },
     },
   },
 });
