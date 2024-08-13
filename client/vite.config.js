@@ -5,20 +5,20 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true,
-    port: import.meta.env.PORT || 5173,
+    port: process.env.PORT || 5173, // Vite 开发服务器的端口
     proxy: {
       '/api': {
-        target: `http://localhost:${import.meta.env.BACKEND_PORT || 3000}`, // 确保与 Express 端口一致
+        target: `http://localhost:${process.env.BACKEND_PORT || 3000}`, // 后端服务器端口
         changeOrigin: true,
       },
       '/auth': {
-        target: `http://localhost:${import.meta.env.BACKEND_PORT || 3000}`,
+        target: `http://localhost:${process.env.BACKEND_PORT || 3000}`,
         changeOrigin: true,
       },
       '/products': {
-        target: `http://localhost:${import.meta.env.BACKEND_PORT || 3000}`,
+        target: `http://localhost:${process.env.BACKEND_PORT || 3000}`,
         changeOrigin: true,
-      }, 
+      },
     },
   },
   build: {
@@ -26,7 +26,7 @@ export default defineConfig({
     rollupOptions: {
       input: "./src/main.jsx",
       output: {
-        dir: 'dist/app',
+        dir: 'dist/app', // 构建输出目录
       },
     },
   },
