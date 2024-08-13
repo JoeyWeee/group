@@ -1,4 +1,4 @@
-import config from '../config/config.js';
+import config from '../../config/config.js';
 
 const create = async (params, credentials, product) => {
   try {

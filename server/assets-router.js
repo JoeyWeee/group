@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const config = require('../config'); // 根据你的实际路径调整
+const config = require('../config/config.js'); // 根据你的实际路径调整
 
 // 正则表达式匹配图片和视频
 const imageRegex = /\/.+\.(svg|png|jpg|jpeg)$/;
