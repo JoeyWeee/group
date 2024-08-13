@@ -1,9 +1,9 @@
 const config = {
-    env: import.meta.env.MODE || 'development',
-    port: import.meta.env.PORT || 3001,
-    jwtSecret: import.meta.env.VITE_JWT_SECRET || "YOUR_secret_key",
-    mongoUri: import.meta.env.VITE_MONGODB_URI || "mongodb+srv://joeyweee:520520Shi@cluster0.qhnik17.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0" || 'mongodb://' + (import.meta.env.VITE_IP || 'localhost') + ':' + (import.meta.env.VITE_MONGO_PORT || '27017') + '/mernproject',
+    env: process.env.NODE_ENV || 'development',
+    port: process.env.PORT || 3001,
+    jwtSecret: process.env.JWT_SECRET || "YOUR_secret_key",
+    mongoUri: process.env.MONGODB_URI || "mongodb+srv://joeyweee:520520Shi@cluster0.qhnik17.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0" || 'mongodb://' + (process.env.IP || 'localhost') + ':' + (process.env.MONGO_PORT || '27017') + '/mernproject',
     apiBaseUrl: 'https://jaxz-group.onrender.com' || 'http://localhost:3000'
-};
-
-export default config;
+  };
+  
+  export default config;
