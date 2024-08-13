@@ -3,9 +3,9 @@ import app from './server/express.js'
 import mongoose from 'mongoose' 
 mongoose.Promise = global.Promise
 mongoose.connect(config.mongoUri, { 
-    useNewUrlParser: true,
-useCreateIndex: true, 
-useUnifiedTopology: true
+    //useNewUrlParser: true,
+//useCreateIndex: true, 
+//useUnifiedTopology: true
  } )
 .then(() => {
     console.log("Connected to the database!");
