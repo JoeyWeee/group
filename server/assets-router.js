@@ -1,14 +1,21 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const imageRegex = /\/.+\.(svg|png|jpg|png|jpeg)$/; // You can add other image formats
-const videoRegex = /\/.+\.(mp4|ogv)$/
+const config = require('../config'); // 根据你的实际路径调整
+
+// 正则表达式匹配图片和视频
+const imageRegex = /\/.+\.(svg|png|jpg|jpeg)$/;
+const videoRegex = /\/.+\.(mp4|ogv)$/;
+
+// 处理图片请求
 router.get(imageRegex, (req, res) => {
   const filePath = req.path;
-  res.redirect(303, `http://localhost:3000/src${filePath}`);
+  res.redirect(303, `${config.apiBaseUrl}/src${filePath}`);
 });
+
+// 处理视频请求
 router.get(videoRegex, (req, res) => {
   const filePath = req.path;
-  res.redirect(303, `http://localhost:3000/src${filePath}`);
+  res.redirect(303, `${config.apiBaseUrl}/src${filePath}`);
 });
-module.exports = router;
 
+module.exports = router;
