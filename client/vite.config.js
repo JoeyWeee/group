@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     host: true,
     port: process.env.PORT || 5173,
-    /* proxy: {
+    proxy: {
       '/api': {
         target: `http://localhost:${process.env.BACKEND_PORT || 3000}`, // 确保与 Express 端口一致
         changeOrigin: true,
@@ -18,7 +18,8 @@ export default defineConfig({
       '/products': {
         target: `http://localhost:${process.env.BACKEND_PORT || 3000}`,
         changeOrigin: true,
-      }, */
+      }, 
+    },  
   },
   build: {
     manifest: true,
